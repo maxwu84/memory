@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> js tutor </title>
+    <link rel="stylesheet" href="./css/game.css">
+    <script src="./jquery-3.6.0/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div id="content">
+        <div id="controlBox">
+            <button id="startBtn" class="gameBtn">
+                開始遊戲
+            </button>
+            <div id="degreeBox">
+                <button id="degreeBtn4x3" class="degreeBtn active" data-degree="4x3">
+                    簡單 (4x3)
+                </button>
+                <button id="degreeBtn6x6" class="degreeBtn" data-degree="6x6">
+                    困難 (6x6)
+                </button>
+            </div>
+        </div>
+        <div id="gameboard_6x6">
+            <div class="cards" data-pokemon_index="001">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/001_妙蛙種子.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="004">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/004_小火龍.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="007">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/007_傑尼龜.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="152">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/152_菊草葉.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="155">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/155_火球鼠.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="158">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/158_小鋸鱷.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="252">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/252_木守宮.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="255">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/255_火稚雞.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="258">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/258_水躍魚.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="387">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/387_草苗龜.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="390">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/390_小火焰猴.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="393">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/393_波加曼.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="495">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/495_藤藤蛇.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="498">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/498_暖暖豬.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="501">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/501_水水獺.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="650">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/650_哈力栗.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="653">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/653_火狐狸.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="656">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/656_呱呱泡蛙.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="001">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/001_妙蛙種子.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="004">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/004_小火龍.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="007">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/007_傑尼龜.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="152">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/152_菊草葉.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="155">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/155_火球鼠.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="158">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/158_小鋸鱷.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="252">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/252_木守宮.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="255">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/255_火稚雞.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="258">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/258_水躍魚.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="387">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/387_草苗龜.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="390">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/390_小火焰猴.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="393">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/393_波加曼.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="495">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/495_藤藤蛇.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="498">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/498_暖暖豬.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="501">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/501_水水獺.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="650">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/650_哈力栗.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="653">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/653_火狐狸.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="656">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/656_呱呱泡蛙.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+        </div>
+        <div id="gameboard_4x3">
+            <div class="cards" data-pokemon_index="387">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/387_草苗龜.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="390">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/390_小火焰猴.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="393">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/393_波加曼.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="722">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/722_木木梟.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="725">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/725_火斑喵.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="728">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/728_球球海獅.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="387">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/387_草苗龜.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="390">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/390_小火焰猴.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="393">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/393_波加曼.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="722">
+                <div class="front grassType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/722_木木梟.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="725">
+                <div class="front fireType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/725_火斑喵.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+            <div class="cards" data-pokemon_index="728">
+                <div class="front waterType">
+                    <img src="./pic/pokemon_bg.png" class="pkmon_bg">
+                    <img src="./pic/pokemon_circle_bg.png" class="pkmon_circle_bg ">
+                    <img src="./pic/pokemon/728_球球海獅.png" class="pokemon">
+                </div>
+                <div class="back">
+                    <img src="./pic/ball.png"> </img>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="gameinfo">
+            <div>
+                <h4> 遊戲狀態</h4>
+                <label id="gameStatus"></label>
+            </div>
+            <div id="timeBox">
+                <h4> 時間</h4>
+                <label id="time"></label>
+            </div>
+            <div id="scoreBox">
+                <h4>分數</h4>
+                <label id="score"></label>
+            </div>
+        </div>
+    </div>
+    <script src="./js/game.js"> </script>
+</body>
+
+</html>
